@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Calculator</title>
+</head>
+
+<body>
+    <input type="text" name="a" placeholder="Enter First Num : " id="a">
+    <br><br>
+    <input type="text" name="b" placeholder="Enter Second Num : " id="b">
+    <br><br>
+    <button id="but" onclick="sum()">Calculate Sum</button>
+    <br><br>
+
+    <!-- Javascript  -->
+    <script>
+        function sum() {
+            const a = document.querySelector('#a').value;
+            const b = document.querySelector('#b').value;
+            const button = document.querySelector('#but')
+            const resultDiv = document.createElement('div');
+            const sum = parseInt(a) + parseInt(b);
+            resultDiv.innerHTML = `<b>Sum of ${a} and ${b} is ${sum}</b>`
+            document.body.appendChild(resultDiv)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" oninput="deBouncedInterest()" name="" placeholder="Enter Principal Amount : " id="a">
+    <br><br>
+    <input type="text" oninput="deBouncedInterest()" name="b" placeholder="Enter Rate : " id="b">
+    <br><br>
+    <!-- <button id="but" onclick="sum()">Calculate Sum</button> -->
+    <div id="interst"></div>
+    <br><br>
+
+
+    <script>
+
+        function deBouncedInterest() {
+            let timer;
+            return function () {
+                clearTimeout(timer);
+                timer = setTimeout(calculateInterest, 1000)
+            }
+
+            async function calculateInterest() {
+                const a = document.getElementById("a").value;
+                const b = document.getElementById("b").value;
+                const response = await fetch(" https://sum-server.100xdevs.com/interest?principal=${principal}&rate=${rate}&time=${time} ");
+
+                const data = await response.json();
+                document.getElementById('interest').innerHTML = data.interest
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
